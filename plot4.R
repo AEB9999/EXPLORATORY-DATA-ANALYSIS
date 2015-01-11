@@ -41,9 +41,9 @@ plot(xplot1,pch=20,ylab="",xlab="")
 lines(xplot2,pch=20,ylab="",xlab="",col="red") 
 lines(xplot3,pch=20,ylab="",xlab="",col="blue") 
 title(ylab="Energy Sub Metering")
-legend("topright", legend=c("Sub_metering_1     ",
-                            "Sub_metering_2     ",
-                            "Sub_metering_3     "),
+legend("topright", legend=c("Sub_metering_1         ",
+                            "Sub_metering_2         ",
+                            "Sub_metering_3         "),
        col=c("black","red","blue"), pch = "_",cex=0.5)
 ##
 ##*****************************************************
