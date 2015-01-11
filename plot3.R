@@ -15,8 +15,8 @@ hhpc_1 <- subset(hhpc,Date =="1/2/2007"| Date =="2/2/2007")
 ## prepare plot2 date time series for x axis 
 xtimeseries <- strptime(paste(hhpc_1$Date,hhpc_1$Time),"%d/%m/%Y %H:%M:%S")
 ## prepare y axis data series
-xdata1<- as.numeric(hhpc_1$Sub_metering_1)
-xdata2<- as.numeric(hhpc_1$Sub_metering_2)
+xdata1<- as.numeric(as.character(hhpc_1$Sub_metering_1))
+xdata2<- as.numeric(as.character(hhpc_1$Sub_metering_2))
 xdata3<- as.numeric(hhpc_1$Sub_metering_3)
 ## build zoo plot series variable and plot
 xplot1 <- zoo(xdata1,xtimeseries)

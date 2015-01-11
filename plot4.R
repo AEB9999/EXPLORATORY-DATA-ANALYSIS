@@ -15,13 +15,13 @@ hhpc_1 <- subset(hhpc,Date =="1/2/2007"| Date =="2/2/2007")
 xtimeseries <- strptime(paste(hhpc_1$Date,hhpc_1$Time),"%d/%m/%Y %H:%M:%S")
 ##
 ### setup 2 x 2 plot matrix
-par(mfcol=c(2,2), mar=c(5,4,0,1))
+par(mfcol=c(2,2), mar=c(5,4,1,1))
 ##*****************************************************
 ## prepare plot #1
 ## prepare y axis data series
-xdata<- as.numeric(hhpc_1$Global_active_power)
+xdata<- as.numeric(as.character(hhpc_1$Global_active_power))
 ## build zoo plot series variable and plot
-xplot <- zoo(xdata/1000,xtimeseries)
+xplot <- zoo(xdata,xtimeseries)
 ##
 plot(xplot,pch=20,ylab="",xlab="") 
 title(ylab="Global Active Power (kilowatts)")
@@ -29,8 +29,8 @@ title(ylab="Global Active Power (kilowatts)")
 ##******************************************************
 ##prepare plot #2
 ## prepare y axis data series
-xdata1<- as.numeric(hhpc_1$Sub_metering_1)
-xdata2<- as.numeric(hhpc_1$Sub_metering_2)
+xdata1<- as.numeric(as.character(hhpc_1$Sub_metering_1))
+xdata2<- as.numeric(as.character(hhpc_1$Sub_metering_2))
 xdata3<- as.numeric(hhpc_1$Sub_metering_3)
 ## build zoo plot series variable and plot
 xplot1 <- zoo(xdata1,xtimeseries)
@@ -49,9 +49,9 @@ legend("topright", legend=c("Sub_metering_1     ",
 ##*****************************************************
 ## prepare plot #3
 ## prepare y axis data series
-vdata<- as.numeric(hhpc_1$Voltage)
+vdata<- as.numeric(as.character(hhpc_1$Voltage))
 ## build zoo plot series variable and plot
-vplot <- zoo(vdata/10,xtimeseries)
+vplot <- zoo(vdata,xtimeseries)
 ##
 plot(vplot,pch=20,ylab="",xlab="") 
 title(ylab="Voltage",xlab="datetime")
@@ -59,12 +59,12 @@ title(ylab="Voltage",xlab="datetime")
 ##*****************************************************
 ## prepare plot #4
 ## prepare y axis data series
-gdata<- as.numeric(hhpc_1$Global_reactive_power)
+gdata<- as.numeric(as.character(hhpc_1$Global_reactive_power))
 ## build zoo plot series variable and plot
-gplot <- zoo(gdata/100,xtimeseries)
+gplot <- zoo(gdata,xtimeseries)
 ##
 ##
-plot(gplot,pch=20,ylab="",xlab="") 
+plot(gplot,pch=20,ylab="",xlab="",ylim=c(0,0.5)) 
 title(ylab="Global Reactive Power",
       xlab="datetime")
 ##

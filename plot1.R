@@ -12,15 +12,14 @@ hhpc <- read.table("household_power_consumption.txt",
 hhpc_1 <- subset(hhpc,Date =="1/2/2007"| Date =="2/2/2007")
 ##
 ## prepare plot1 vector for kilowatts
-plot1 <- as.numeric(hhpc_1$Global_active_power)
-plot1 <- plot1 / 1000
+plot1 <- as.numeric(as.character(hhpc_1$Global_active_power))
 ##
 ##plot histogram
 hist(plot1, col="red", 
      xlab="Global Active Power(kilowatts)",
      main="Global Active Power",
-     ylim=c(0,1200), xlim=c(0,6),
-     breaks = 24)
+     ylim=c(0,1200))
+## , xlim=c(0,6),breaks = 12)
 ##
 ## put plot in png file plot1.png
 dev.copy(png,file="plot1.png",width=480, height=480)
