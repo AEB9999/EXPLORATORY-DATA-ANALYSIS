@@ -22,7 +22,7 @@ xplot <- zoo(xdata/1000,xtimeseries)
 plot(xplot,pch=20,ylab="",xlab="") 
 title(ylab="Global Active Power (kilowatts)")
 ##
-## put plot in png file plot1.png
+## put plot in png file plot2.png
 dev.copy(png,file="plot2.png",width=480, height=480)
 dev.off()
 ##
